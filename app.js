@@ -41,8 +41,12 @@ setTimeout(() => {
   
   const scoreNumber = document.querySelector(".score__number");
   const scorePc = document.querySelector(".score__Pc");
-  let score = 0;
-  let PcScore = 0;
+  // let score = 0;
+  // let PcScore = 0;
+  let score = parseInt(localStorage.getItem('score')) || 0;
+let PcScore = parseInt(localStorage.getItem('pcScore')) || 0;
+scoreNumber.innerText = score;
+scorePc.innerText = PcScore;
   
   // Game Logic
   choiceButtons.forEach((button) => {
@@ -132,12 +136,14 @@ setTimeout(() => {
   function keepScore(point) {
     score += point;
     scoreNumber.innerText = score;
+    localStorage.setItem('score', score);
   }
 
  
   function increasePcScore(point) {
     PcScore += point;
     scorePc.innerText = PcScore;
+    localStorage.setItem('pcScore', PcScore);
   }
 
   
@@ -169,4 +175,19 @@ setTimeout(() => {
   document.getElementById("goToPage2").addEventListener("click", function() {
     // Navigate to Page 2
     window.location.href = "page2.html";
+});
+
+
+
+
+const rulesButton = document.querySelector('.rules-btn');
+const modal = document.querySelector('.modal');
+const closeButton = document.querySelector('.close-btn');
+
+rulesButton.addEventListener('click', () => {
+  modal.classList.toggle('active');
+});
+
+closeButton.addEventListener('click', () => {
+  modal.classList.remove('active');
 });
