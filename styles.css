@@ -338,7 +338,7 @@ body {
 
 /* Rules Modal */
 .modal {
-  position: absolute;
+  /* position: absolute;
   height: 100%;
   width: 100%;
   top: 0;
@@ -348,8 +348,32 @@ body {
   background: var(--shadow-med);
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  pointer-events: none;
+  pointer-events: none; */
+
+  display: none;
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+
+
+
+
+
+
 }
+
+
+.modal.active {
+  display: block;
+}
+
+
 .modal__container {
   background: #fff;
   border-radius: 0.5rem;
@@ -358,24 +382,34 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding: 2rem 2rem 1rem;
+  padding: 1rem 1rem 0rem;
 }
 .modal__heading {
   font-size: 1.5rem;
   color: var(--dark-text);
 }
 .close-btn {
-  border: none;
+   border-radius: 1000px;
+  border: white;
   outline: none;
-  background: none;
+ 
   cursor: pointer;
 }
 .rules-img {
-  padding: 2rem 4rem;
+  padding: 0.5rem 0.5rem;
 }
 .show-modal {
   opacity: 1;
   pointer-events: initial;
+
+}
+
+
+.cross{
+  background-color: #e84f17;
+  border-radius: 500px;
+  height: 25px;
+  border: 1px solid #131313;
 }
 
 /* Footer */
